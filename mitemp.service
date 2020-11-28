@@ -1,8 +1,14 @@
 [Unit]
 Description=mitemp - fetch data from xiaomi mijia ble thermometer
+StartLimitIntervalSec=0
+
 
 [Service]
-ExecStart=/usr/local/bin/mitemp
+ExecStart=/home/pi/mitemp/mitemp.py
+WorkingDirectory=/home/pi/mitemp
+Restart=always
+RuntimeMaxSec=3600
+#RestartSec=5s
 
 [Install]
 WantedBy=multi-user.target
